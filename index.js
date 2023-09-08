@@ -26,12 +26,15 @@ app.post('/bfhl', (req, res) => {
     const alphabetsArr = data.filter((element) => (element>='A' && element <='Z') || (element>='a' && element<='z'));
     const numsArr = data.filter((element) => !alphabetsArr.includes(element));
      // Calculate the highest alphabet from the input array
-     const highestAlphabet = data.reduce((max, item) => {
-        if (/^[a-zA-Z]$/.test(item) && item > max) {
-          return item;
-        }
-        return max;
-      }, 'A');
+     let highestAlphabet = null;
+
+     for (const item of data) {
+       if (/^[a-zA-Z]$/.test(item)) {
+         if (!highestAlphabet || item.localeCompare(highestAlphabet) > 0) {
+           highestAlphabet = item;
+         }
+       }
+     }
     const maxAlphabet = [];
     if(highestAlphabet){
         maxAlphabet.push(highestAlphabet);
