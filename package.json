@@ -1,0 +1,14 @@
+{
+  "name": "bajaj-api",
+  "version": "1.0.0",
+  "description": "Building a rest api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "author": "Yash Kishore Parwani",
+  "license": "ISC"
+}
